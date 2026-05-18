@@ -1,0 +1,10 @@
+kernel/Cargo.lock
+kernel/target/**
+kernel/src/link_app.S
+
+user/rust/target/**
+user/rust/Cargo.lock
+user/c/*.o
+user/build
+
+basic

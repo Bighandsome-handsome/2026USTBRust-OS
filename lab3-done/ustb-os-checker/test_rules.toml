@@ -1,0 +1,84 @@
+[ch2]
+expected = [
+    "[kernel] PageFault in application, kernel killed it.",
+    
+    "Hello from C!",
+    
+    "Hello, world from user mode program!",
+    
+    "3^200000 = 871008973(MOD 998244353)",
+    'r"Test power_3 OK\d+!"',
+    
+    "Testing open/read/close...",
+    'r"sys_open: path = test_file\d+"',
+    "Read content: Success!",
+    'r"sys_close: fd = \d+"',
+]
+not_expected = ["FAIL: T.T"]
+
+[ch3]
+expected = [
+    'r"Test write A OK\d+!"',
+    'r"Test write B OK\d+!"',
+    'r"Test write C OK\d+!"',
+
+    'r"Success\d+ trace_simple!"',
+
+    'r"SYSCALL_WRITE count completed\d+ after writes: \d+"',
+    'r"Task Status: \d+ \(RUNNING\) OK\d+!"',
+    'r"Success\d+! Total syscalls: \d+"',
+    'r"Success\d+! Total syscalls made: \d+"',
+]
+not_expected = ["FAIL: T.T"]
+
+[ch4]
+expected = [
+    'r"Test sbrk almost OK\d+!"',
+    'r"\[initproc\] sys_write returned \d+ bytes, OK\d+!"',
+    'r"\[initproc\] All Lab 4 basic tests passed\d+!"',
+    'r"Test 04_1 OK\d+!"',
+    'r"Test 04_4 test OK\d+!"',
+    'r"Test 04_5 ummap OK\d+!"',
+    'r"Test 04_6 ummap2 OK\d+!"',
+]
+not_expected = [
+    "Test sbrk failed!",
+    "Should cause error, Test 04_2 fail!",
+]
+
+[ch5]
+inherit_from = "ch4"
+expected = [
+    'r"child process pid = \d+, exit code = 100"',
+    "forktest pass.",
+    'r"forktest1 test passed\d+!"',
+    'r"Test set_priority OK\d+!"',
+    'r"priority = \d+, exitcode = \d+, ratio = \d+"'
+]
+exclude = [
+    'r"\[initproc\] sys_write returned \d+ bytes, OK\d+!"',
+    'r"\[initproc\] All Lab 4 basic tests passed\d+!"',
+]
+not_expected = [
+    "FAIL: T.T",
+]
+
+[ch6]
+inherit_from = "ch5"
+expected = [
+    'r"File cat test passed\d+!"',
+    'r"file_test passed\d+!"',
+    'r"Test file0 OK\d+!"',
+    'r"Test fstat OK\d+!"',
+    'r"Test link OK\d+!"',
+    'r"Test mass open/unlink OK\d+!"',
+]
+exclude = [
+
+]
+not_expected = [
+    "FAIL: T.T",
+]
+
+
+
